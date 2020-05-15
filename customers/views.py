@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import UserRegisterForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -14,10 +15,13 @@ def register(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, f'Dear {username}, your account has been created!')
-            return redirect('menu')
+            messages.success(request, f'Dear {username}, your account has been created! Please Log in')
+            return redirect('login')
         
     else:
         form = UserRegisterForm()
     return render(request, 'customers/register.html', {'form': form})
 
+@login_required
+def myboss(request):
+    return render(request, 'customers/myboss.html')

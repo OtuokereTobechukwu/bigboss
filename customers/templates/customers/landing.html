@@ -57,15 +57,37 @@
           <i class="fas fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
+          {% if user.is_authenticated %}
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
+           <li class="nav-item">
+              <a class="nav-link" href="{% url 'menu' %}">Menu</a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
+                <a class="nav-link" href="{% url 'myboss' %}">My Boss</a>
+              </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
             </li>
           </ul>
+          {% else %}
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+  
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+  
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">Sign in</a>
+              </li>
+  
+            </ul>
+          {% endif %}
+          
         </div>
         
       </div>
@@ -85,12 +107,7 @@
               <span class="subheading">Quality always....</span>
               
             </div>
-            <button id = 'sign'
-                class="btn btn-lg btn-primary btn-block text-uppercase"
-                type="submit"
-              >
-                Sign in
-              </button>
+            
           </div>
         </div>
       </div>
