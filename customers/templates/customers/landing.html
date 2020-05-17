@@ -59,44 +59,38 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           {% if user.is_authenticated %}
           <ul class="navbar-nav ml-auto">
-           <li class="nav-item">
+            <li class="nav-item">
               <a class="nav-link" href="{% url 'menu' %}">Menu</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'myboss' %}">My Boss</a>
-              </li>
+              <a class="nav-link" href="{% url 'myboss' %}">My Boss</a>
+            </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
+              <a class="nav-link" href="about.html">About</a>
             </li>
 
             <li class="nav-item">
               <a class="nav-link" href="{% url 'logout' %}">Log out</a>
-          </li>
-
+            </li>
           </ul>
           {% else %}
           <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">Sign in</a>
+            </li>
 
-              <li class="nav-item">
-                  <a class="nav-link" href="{% url 'login' %}">Sign in</a>
-                </li>
-    
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
-              </li>
-  
-              <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact</a>
-              </li>
-  
-              
-            </ul>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
           {% endif %}
-          
         </div>
-        
       </div>
     </nav>
 
@@ -112,9 +106,7 @@
             <div class="site-heading">
               <h1>Welcome</h1>
               <span class="subheading">Quality always....</span>
-              
             </div>
-            
           </div>
         </div>
       </div>
@@ -122,83 +114,68 @@
 
     <!-- Main Content -->
     <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="post-preview">
-            <a href="post.html">
-              <h2 class="post-title">
-                Some other contents will be placed here depending on what we
-                decide.
-              </h2>
-              <h3 class="post-subtitle">
-                Fantabulous
-              </h3>
-            </a>
-            <p class="post-meta">
-              Posted by
-              <a href="#">Start Bootstrap</a>
-              on September 24, 2019
-            </p>
-          </div>
-          <hr />
-          <div class="post-preview">
-            <a href="post.html">
-              <h2 class="post-title">
-                I believe every human has a finite number of heartbeats. I don't
-                intend to waste any of mine.
-              </h2>
-            </a>
-            <p class="post-meta">
-              Posted by
-              <a href="#">Start Bootstrap</a>
-              on September 18, 2019
-            </p>
-          </div>
-          <hr />
-          <div class="post-preview">
-            <a href="post.html">
-              <h2 class="post-title">
-                Science has not yet mastered prophecy
-              </h2>
-              <h3 class="post-subtitle">
-                We predict too much for the next year and yet far too little for
-                the next ten.
-              </h3>
-            </a>
-            <p class="post-meta">
-              Posted by
-              <a href="#">Start Bootstrap</a>
-              on August 24, 2019
-            </p>
-          </div>
-          <hr />
-          <div class="post-preview">
-            <a href="post.html">
-              <h2 class="post-title">
-                Failure is not an option
-              </h2>
-              <h3 class="post-subtitle">
-                Many say exploration is part of our destiny, but it’s actually
-                our duty to future generations.
-              </h3>
-            </a>
-            <p class="post-meta">
-              Posted by
-              <a href="#">Start Bootstrap</a>
-              on July 8, 2019
-            </p>
-          </div>
-          <hr />
-          <!-- Pager -->
-          <div class="clearfix">
-            <a class="btn btn-primary float-right" href="#"
-              >Older Posts &rarr;</a
-            >
+      <div class="card-group">
+        <div class="card">
+          <div class="card-body">
+            <div class="card-deck">
+              <div class="card">
+                <img
+                  class="card-img-top"
+                  src=".../100px200/"
+                  alt="Card image cap"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This is a longer card with supporting text below as a
+                    natural lead-in to additional content. This content is a
+                    little bit longer.
+                  </p>
+                  <p class="card-text">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                  </p>
+                </div>
+              </div>
+              <div class="card">
+                <img
+                  class="card-img-top"
+                  src=".../100px200/"
+                  alt="Card image cap"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This card has supporting text below as a natural lead-in to
+                    additional content.
+                  </p>
+                  <p class="card-text">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                  </p>
+                </div>
+              </div>
+              <div class="card">
+                <img
+                  class="card-img-top"
+                  src=".../100px200/"
+                  alt="Card image cap"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This is a wider card with supporting text below as a natural
+                    lead-in to additional content. This card has even longer
+                    content than the first to show that equal height action.
+                  </p>
+                  <p class="card-text">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
     <hr />
 
     <!-- Footer -->
@@ -233,7 +210,7 @@
               </li>
             </ul>
             <p class="copyright text-muted">
-              Copyright &copy; Your Website 2019
+              Copyright &copy; BigBoss 2020
             </p>
           </div>
         </div>
