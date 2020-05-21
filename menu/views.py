@@ -1,10 +1,12 @@
 from django.shortcuts import render
-from .models import menu
+from .models import *
+
 
 # Create your views here.
 
 def menus(request):
-    context={}
+    products = Product.objects.all()
+    context={'products':products}
     return render(request,'menu/menu.html', context)
 
 def cart(request):
@@ -14,4 +16,5 @@ def cart(request):
 def checkout(request):
     context={}
     return render(request,'menu/checkout.html', context)
+
 

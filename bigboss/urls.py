@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from customers import views as customers_view
 from django.contrib.auth import views as auth_views
+from menu import views as menu_view
 
 
 urlpatterns = [
@@ -25,6 +26,7 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='customers/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='customers/logout.html'), name='logout'),
     path('myboss/',customers_view.myboss, name='myboss'),
+     path('menu/',menu_view.menus, name='menu'),
     path('', include('customers.urls')),
     
 ]

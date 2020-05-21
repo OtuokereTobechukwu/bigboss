@@ -25,3 +25,5 @@ def register(request):
 @login_required
 def myboss(request):
     return render(request, 'customers/myboss.html')
+
+
