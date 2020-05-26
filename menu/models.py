@@ -55,10 +55,5 @@ class DeliveryAddress(models.Model):
 
 
 
-    
-# PACKAGE = (
-    #     ('One-off', 'Indoor'),
-    #     ('Out Door', 'Out Door'),
-    # )
 
     
