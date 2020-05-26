@@ -24,7 +24,7 @@ class Order(models.Model):
     order_id = models.CharField(max_length=100, null=True)
     order_type = models.CharField(max_length=100, null=True, default='Monthly', choices=CHOICE)
     def __str__(self):
-        return str(self.order_type)
+        return self.order_type
 
 
 class Product(models.Model):
@@ -41,6 +41,11 @@ class Product(models.Model):
     def __str__(self):
 
         return self.items
+
+
+    def pricing(self):
+
+        return self.price
 
 class DeliveryAddress(models.Model):
     client = models.ForeignKey(Client, on_delete=models.SET_NULL, null=True, blank=True)

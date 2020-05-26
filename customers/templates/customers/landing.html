@@ -60,15 +60,11 @@
           {% if user.is_authenticated %}
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#">Menu</a>
+              <a class="nav-link" href="{% url 'menu' %}">Menu</a>
             </li>
 
             <li class="nav-item">
               <a class="nav-link" href="{% url 'myboss' %}">My Boss</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
             </li>
 
             <li class="nav-item">
@@ -108,9 +104,19 @@
               <span class="subheading">Quality always....</span>
             </div>
             {% if user.is_authenticated %}
-            <a href="#" class="btn btn-primary btn-sm btn-block"  type="submit">Menu</a>
+            <a
+              href="{% url 'menu' %}"
+              class="btn btn-primary btn-sm btn-block"
+              type="submit"
+              >Menu</a
+            >
             {% else %}
-            <a href="{% url 'login' %}" class="btn btn-primary btn-sm btn-block"  type="submit">Sign in</a>
+            <a
+              href="{% url 'login' %}"
+              class="btn btn-primary btn-sm btn-block"
+              type="submit"
+              >Sign in</a
+            >
             {% endif %}
           </div>
         </div>

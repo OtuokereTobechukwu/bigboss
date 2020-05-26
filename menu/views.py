@@ -6,10 +6,11 @@ from .models import *
 
 def menus(request):
     products = Product.objects.all()
+    orders = Order.objects.all()
     #trying to show the price of each product
     
-    #product_price = Product.objects.get()
-    context={'products':products, 'product_price': product_price}
+    
+    context={'products':products, 'orders':orders}
     return render(request,'menu/menu.html', context)
 
 def cart(request):
@@ -19,5 +20,3 @@ def cart(request):
 def checkout(request):
     context={}
     return render(request,'menu/checkout.html', context)
-
-
