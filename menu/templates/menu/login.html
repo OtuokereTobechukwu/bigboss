@@ -1,4 +1,4 @@
-{% extends "customers/form_base.html" %}
+{% extends "menu/form_base.html" %} 
 {% block content %}
 {% load crispy_forms_tags %}
 
@@ -16,7 +16,8 @@
     </form>
     <div class="border top pt-3">
       <small class="text-muted"
-        >Don't have an account? <a class="ml-2" href="{% url 'register' %}">Sign up today</a>
+        >Don't have an account?
+        <a class="ml-2" href="{% url 'register' %}">Sign up today</a>
       </small>
     </div>
   </div>

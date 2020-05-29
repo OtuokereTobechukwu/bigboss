@@ -1,0 +1,11 @@
+{% extends "menu/form_base.html" %} 
+{% block content %}
+<h2>You have successfully logged out. We hope to see you again and again!</h2>
+<div class="border top pt-3">
+  <small class="text-muted"
+    >Don't have an account?
+    <a class="ml-2" href="{% url 'login' %}">Log In Again?</a>
+  </small>
+</div>
+
+{% endblock content %}
