@@ -8,12 +8,12 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def menus(request):
-    products = Product.objects.all()
-    orders = Order.objects.all()
+   # products = Product.objects.all()
+    #orders = Order.objects.all()
     #trying to show the price of each product
     
     
-    context={'products':products, 'orders':orders}
+    context={}
     return render(request,'menu/menu.html', context)
 
 def cart(request):

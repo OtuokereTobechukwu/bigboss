@@ -18,6 +18,9 @@ from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from menu import views as menu_view
 
+from django.conf.urls.static import static
+from django.conf import settings
+
 
 urlpatterns = [
     
@@ -29,3 +32,4 @@ urlpatterns = [
     path('', include('menu.urls')),
     
 ]
+ 

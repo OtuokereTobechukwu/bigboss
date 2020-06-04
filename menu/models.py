@@ -9,10 +9,10 @@ class Client(models.Model):
     
     def __str__(self):
 
-        return self.name 
+        return self.name
 
 
-class Order(models.Model):
+class Subscribe(models.Model):
     CHOICE =(
               ('OneOff', 'OneOff'),
               ('Weekly', 'Weekly'),
@@ -20,36 +20,43 @@ class Order(models.Model):
     )
     client = models.ForeignKey(Client, on_delete=models.SET_NULL, null=True, blank=True)
     date_ordered = models.DateTimeField(auto_now_add=True)
-    complete = models.BooleanField(default=False)
-    order_id = models.CharField(max_length=100, null=True)
-    order_type = models.CharField(max_length=100, null=True, default='Monthly', choices=CHOICE)
+    sub_id = models.CharField(max_length=100, null=True)
+    sub_type = models.CharField(max_length=100, null=True, default='Monthly', choices=CHOICE)
+
     def __str__(self):
-        return self.order_type
+        return self.sub_type
 
 
-class Product(models.Model):
+class Dishes(models.Model):
     CHOICE =(
               ('Rice', 'Rice'),
               ('Beans', 'Beans'),
               ('Sauces', 'Sauces'),
+              ('Pasta', 'Pasta'),
+              ('Proteins', 'Proteins'),
+              ('Swallow', 'Swallow'),
     )
-    order_type = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True, blank=True)
-    items = models.CharField(max_length=100, null=True, choices=CHOICE)
+    sub_type = models.ForeignKey(Subscribe, on_delete=models.SET_NULL, null=True, blank=True)
+    dish_name = models.CharField(max_length=100, null=True, choices=CHOICE)
+    #complete = models.BooleanField(default=False)
     price = models.FloatField()
-    digital = models.BooleanField(default=False, null=True, blank=True)
-
+    #image field
+    
     def __str__(self):
+ 
+        return self.dish_name
 
-        return self.items
 
+class OrderItem(models.Model):
+    dish_name = models.ForeignKey(Dishes, on_delete=models.SET_NULL, null=True)
+    sub_type = models.ForeignKey(Subscribe, on_delete=models.SET_NULL, null=True)
+    quantity = models.IntegerField(default=0, null=True, blank=True)
+    date_added = models.DateTimeField(auto_now_add=True)
 
-    def pricing(self):
-
-        return self.price
 
 class DeliveryAddress(models.Model):
     client = models.ForeignKey(Client, on_delete=models.SET_NULL, null=True, blank=True)
-    order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True, blank=True)
+    sub_type = models.ForeignKey(Subscribe, on_delete=models.SET_NULL, null=True, blank=True)
     address = models.CharField(max_length=200, null=True)
     city = models.CharField(max_length=200, null=True)
     state = models.CharField(max_length=200, null=True)
