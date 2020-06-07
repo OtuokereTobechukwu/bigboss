@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import Subscribe, Client
+from .models import Subscription, Client
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
@@ -16,5 +16,5 @@ class UserRegisterForm(UserCreationForm):
 
 class Orderform(ModelForm):
     class Meta:
-        model = Subscribe
+        model = Subscription
         fields = ['sub_type']

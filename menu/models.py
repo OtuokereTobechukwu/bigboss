@@ -12,14 +12,13 @@ class Client(models.Model):
         return self.name
 
 
-class Subscribe(models.Model):
+class Subscription(models.Model):
     CHOICE =(
               ('OneOff', 'OneOff'),
               ('Weekly', 'Weekly'),
               ('Monthly', 'Monthly'),
     )
     client = models.ForeignKey(Client, on_delete=models.SET_NULL, null=True, blank=True)
-    date_ordered = models.DateTimeField(auto_now_add=True)
     sub_id = models.CharField(max_length=100, null=True)
     sub_type = models.CharField(max_length=100, null=True, default='Monthly', choices=CHOICE)
 
@@ -36,7 +35,7 @@ class Dishes(models.Model):
               ('Proteins', 'Proteins'),
               ('Swallow', 'Swallow'),
     )
-    sub_type = models.ForeignKey(Subscribe, on_delete=models.SET_NULL, null=True, blank=True)
+    sub_type = models.ForeignKey(Subscription, on_delete=models.SET_NULL, null=True, blank=True)
     dish_name = models.CharField(max_length=100, null=True, choices=CHOICE)
     #complete = models.BooleanField(default=False)
     price = models.FloatField()
@@ -49,14 +48,14 @@ class Dishes(models.Model):
 
 class OrderItem(models.Model):
     dish_name = models.ForeignKey(Dishes, on_delete=models.SET_NULL, null=True)
-    sub_type = models.ForeignKey(Subscribe, on_delete=models.SET_NULL, null=True)
+    sub_type = models.ForeignKey(Subscription, on_delete=models.SET_NULL, null=True)
     quantity = models.IntegerField(default=0, null=True, blank=True)
     date_added = models.DateTimeField(auto_now_add=True)
 
 
 class DeliveryAddress(models.Model):
     client = models.ForeignKey(Client, on_delete=models.SET_NULL, null=True, blank=True)
-    sub_type = models.ForeignKey(Subscribe, on_delete=models.SET_NULL, null=True, blank=True)
+    sub_type = models.ForeignKey(Subscription, on_delete=models.SET_NULL, null=True, blank=True)
     address = models.CharField(max_length=200, null=True)
     city = models.CharField(max_length=200, null=True)
     state = models.CharField(max_length=200, null=True)
